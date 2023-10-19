@@ -4,7 +4,6 @@ const start = document.querySelector('.btn');
 const playground = document.getElementById('playground');
 const difficulty = document.querySelector('.form-select');
 
-console.log(bombsGenerator(10,1,10));
 
 start.addEventListener('click',()=>{
     playground.classList.remove('text-white');
@@ -31,7 +30,7 @@ start.addEventListener('click',()=>{
     
     for(let i=1;i<=squareNumber;i++)//squares generator
     {
-        responsiveSquare(playground,'square','active',i);
+        playgroundGenerator(16, 1, squareNumber, 'square', 'active', 'bomb', playground, i);
     }
 
     start.innerHTML=`Retry`;

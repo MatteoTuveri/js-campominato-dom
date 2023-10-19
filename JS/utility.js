@@ -1,7 +1,7 @@
 /* genera un numero random tra min e max */
 
 function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /* La seguente funzione genera un elemento <div> che verrà inserito
@@ -10,14 +10,23 @@ function getRndInteger(min, max) {
    l'elemento generato |responsiveStyleName|. è possibile, inoltre, aggiungere un numero che 
    al click verrà stampato nell'elemento |number|. */
 
-function responsiveSquare(position, className, responsiveStyleName, number) {
+function playgroundGenerator(bombsNumber, min, max, className, freeStyle, bombsStyle, position, number) {
     let square = document.createElement('div');
     square.classList.add(className);
-    square.addEventListener('click', () => {
+    let cb = () => {
+        let bombs = bombsGenerator(bombsNumber, min, max);
+        if (bombs.includes(number)) {
 
-        square.classList.add(responsiveStyleName);
-        square.innerHTML = `${number}`
-    });
+            square.classList.add(bombsStyle);
+            square.innerHTML = `<i class="fa-solid fa-bomb fa-shake fa-xl"></i>`
+        }
+        else {
+            square.classList.add(freeStyle);
+            square.innerHTML = `${number}`
+        }
+        square.removeEventListener('click',cb)
+    };
+    square.addEventListener('click',cb);
     return position.append(square);
 }
 
@@ -26,11 +35,11 @@ function responsiveSquare(position, className, responsiveStyleName, number) {
 
 function bombsGenerator(n, min, max) {
     let bombs = [];
-    while (bombs.length<=n) {
+    while (bombs.length < n) {
 
-        let bomb = getRndInteger(min,max);
+        let bomb = getRndInteger(min, max + 1);
         if (!bombs.includes(bomb)) {
-           bombs.push(bomb);
+            bombs.push(bomb);
         }
     }
     return bombs;
