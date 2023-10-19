@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container d-flex flex-column align-items-center">
+    <div class="container d-flex flex-column align-items-center position-relative">
 
         <div id="playground" class="bg-black d-flex justify-content-center flex-wrap my-1 ">
 
@@ -25,6 +25,11 @@
                 <option value="normal">Normal</option>
                 <option value="hard">Hard</option>
             </select>
+        </div>
+
+        <div class="msg msg-none position-absolute mx-auto p-5 rounded-3 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-uppercase"></h1>
+            <button class="btn btn-warning">Retry</button>
         </div>
 
     </div>

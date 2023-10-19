@@ -18,3 +18,16 @@
 .bomb{
     background-color: red;
 }
+
+.msg {
+    display: block;
+    transform: scaleY(1);
+    background-color: rgb(255,255,255,0.8);
+    width: 25vw;
+    top: 20vh;
+    transition: 3s;
+}
+
+.msg-none{
+    transform: scaleY(0);
+}
