@@ -12,7 +12,7 @@ start.addEventListener('click', () => {
     playground.classList.remove('text-white');
     playground.innerHTML = ''
     let squareNumber;
-    let bombsNumber = 1;
+    let bombsNumber = 16;
     let counter = 0;
     if (difficulty.value === 'easy') {
         squareNumber = 100;
@@ -34,11 +34,11 @@ start.addEventListener('click', () => {
     }
 
     let bombs = bombsGenerator(bombsNumber, 1, squareNumber);
-    console.log(bombs);
     for (let i = 1; i <= squareNumber; i++)//squares generator
     {
         let square = document.createElement('div');
         square.classList.add('square');
+        square.id = `cell-${i}`
         square.addEventListener('click', () => {
             if (bombs.includes(i)) {
                 square.classList.add('bomb');
@@ -48,8 +48,9 @@ start.addEventListener('click', () => {
                 text.innerHTML = `hai perso`
             }
             else {
+                let radar = bombRadar(i,squareNumber,bombs);
                 square.classList.add('active');
-                square.innerHTML = `${i}`
+                square.innerHTML = `${radar}`
                 counter += 1000;
                 counterMsg.innerHTML=`${counter}`
                 if (counter === (squareNumber - bombsNumber)*1000) {
