@@ -4,7 +4,7 @@ const start = document.querySelector('.btn');
 const playground = document.getElementById('playground');
 const difficulty = document.querySelector('.form-select');
 
-bombsGenerator(10,1,10);
+console.log(bombsGenerator(10,1,10));
 
 start.addEventListener('click',()=>{
     playground.classList.remove('text-white');

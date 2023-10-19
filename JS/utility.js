@@ -26,28 +26,12 @@ function responsiveSquare(position, className, responsiveStyleName, number) {
 
 function bombsGenerator(n, min, max) {
     let bombs = [];
-    for (let i = 0; i < n; i++) {
+    while (bombs.length<=n) {
 
-        let random = getRndInteger(min, max);
-        let check = true;
-
-        if (bombs.length > 1) {
-            for (let i = 0; i < bombs.length-1; i++) {
-                console.log()
-/*                 if (random === bombs[i]) {
-                    check = false;
-                } */
-            }
-
-        }
-
-        if (bombs.length === 0 || check) {
-            bombs.push(random);
-        }
-        else {
-            i--;
+        let bomb = getRndInteger(min,max);
+        if (!bombs.includes(bomb)) {
+           bombs.push(bomb);
         }
     }
-    console.log(bombs);
     return bombs;
 }
