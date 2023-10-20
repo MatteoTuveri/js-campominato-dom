@@ -36,6 +36,7 @@ start.addEventListener('click', () => {
     {
         let square = document.createElement('div');
         square.classList.add('square');
+        square.id=`cell-${i}`;
         square.style.width = `calc(800px / ${Math.sqrt(squareNumber)}`;
         square.style.height = `calc(800px / ${Math.sqrt(squareNumber)}`;
         let radar = bombRadar(i,squareNumber,bombs);
@@ -43,7 +44,7 @@ start.addEventListener('click', () => {
             if (bombs.includes(i)) {
                 square.classList.add('bomb');
                 square.innerHTML = `<i class="fa-solid fa-bomb fa-shake fa-xl"></i>`
-                gameOver(playground);
+                gameOver(playground,bombs);
                 msg.classList.remove(`msg-none`);
                 text.innerHTML = `hai perso`
             }
@@ -53,7 +54,7 @@ start.addEventListener('click', () => {
                 counter += 1000;
                 counterMsg.innerHTML=`${counter}`
                 if (counter === (squareNumber - bombsNumber)*1000) {
-                    gameOver(playground);
+                    gameOver(playground,bombs);
                     msg.classList.remove(`msg-none`);
                     text.innerHTML = `hai vinto!`
                 }

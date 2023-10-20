@@ -19,7 +19,13 @@ function bombsGenerator(n, min, max) {
     return bombs;
 }
 
-function gameOver(box) {
+function gameOver(box,bombs) {
+    for(let i=0;i<bombs.length;i++){
+        let bomb = bombs[i];
+        let position = document.getElementById(`cell-${bombs[i]}`);
+        position.classList.add('bomb');
+        position.innerHTML = `<i class="fa-solid fa-bomb fa-shake fa-xl"></i>`
+    }
     buttonMsg.addEventListener('click', () => location.reload())
     box.replaceWith(box.cloneNode(true));
 }
