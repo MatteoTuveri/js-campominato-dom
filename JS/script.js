@@ -12,7 +12,7 @@ start.addEventListener('click', () => {
     playground.classList.remove('text-white');
     playground.innerHTML = '';
     let squareNumber;
-    let bombsNumber = 10;
+    let bombsNumber = 1;
     let counter = 0;
     if (difficulty.value === 'easy') {
         squareNumber = 100;
@@ -38,7 +38,7 @@ start.addEventListener('click', () => {
         square.classList.add('square');
         square.style.width = `calc(800px / ${Math.sqrt(squareNumber)}`;
         square.style.height = `calc(800px / ${Math.sqrt(squareNumber)}`;
-        square.addEventListener('click', () => {
+        let click = () => {
             if (bombs.includes(i)) {
                 square.classList.add('bomb');
                 square.innerHTML = `<i class="fa-solid fa-bomb fa-shake fa-xl"></i>`
@@ -58,9 +58,9 @@ start.addEventListener('click', () => {
                     text.innerHTML = `hai vinto!`
                 }
             }
-            square.removeEventListener('click', square);
-        });
-        square.addEventListener('click', square);
+            square.removeEventListener('click', click);
+        };
+        square.addEventListener('click', click);
         playground.append(square);
     }
 
