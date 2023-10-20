@@ -26,8 +26,11 @@ function gameOver(box,bombs) {
         position.classList.add('bomb');
         position.innerHTML = `<i class="fa-solid fa-bomb fa-shake fa-xl"></i>`
     }
-    buttonMsg.addEventListener('click', () => location.reload())
-    box.replaceWith(box.cloneNode(true));
+    buttonMsg.addEventListener('click', () =>{
+        msg.classList.add(`msg-none`);
+        counterMsg.innerHTML=`Punteggio`;
+        box.innerHTML='';
+    });
 }
 
 function bombRadar(number, squareNumber, bombsArray) {
@@ -42,69 +45,50 @@ function bombRadar(number, squareNumber, bombsArray) {
 
     if (borderLeft.includes(number)) {
         //right
-
         for (let i = 1; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number + i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
         //top
-
         for (let i = 0; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number - baseMeasure + i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
         //bottom
-
         for (let i = 0; i >= -1; i--) {
             bombsInTheField = (bombsArray.includes(number + baseMeasure + i)) ? bombsInTheField + 1 : bombsInTheField;
         }
     }
 
     else if (borderRight.includes(number)) {
-
         //left
-
         for (let i = 1; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number - i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
         //top
-
         for (let i = 0; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number - baseMeasure - i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
         //bottom
-
         for (let i = 0; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number + baseMeasure - i)) ? bombsInTheField + 1 : bombsInTheField;
         }
     }
     else {
         //left
-
         for (let i = 1; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number - i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
         //right
-
         for (let i = 1; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number + i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
         //top
-
         for (let i = -1; i <= 1; i++) {
             bombsInTheField = (bombsArray.includes(number - baseMeasure - i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
         //bottom
-
         for (let i = 1; i >= -1; i--) {
             bombsInTheField = (bombsArray.includes(number + baseMeasure + i)) ? bombsInTheField + 1 : bombsInTheField;
         }
-
     }
 
     console.log(bombsInTheField)

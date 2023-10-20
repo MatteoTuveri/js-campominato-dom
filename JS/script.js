@@ -32,6 +32,7 @@ start.addEventListener('click', () => {
 
     let bombs = bombsGenerator(bombsNumber, 1, squareNumber);
     console.log(bombs);
+
     for (let i = 1; i <= squareNumber; i++)//squares generator
     {
         let square = document.createElement('div');
@@ -40,13 +41,20 @@ start.addEventListener('click', () => {
         square.style.width = `calc(800px / ${Math.sqrt(squareNumber)}`;
         square.style.height = `calc(800px / ${Math.sqrt(squareNumber)}`;
         let radar = bombRadar(i,squareNumber,bombs);
-        let click = () => {
+        square.addEventListener('click', bombsAndCells);
+        
+        function bombsAndCells() {
+
             if (bombs.includes(i)) {
                 square.classList.add('bomb');
                 square.innerHTML = `<i class="fa-solid fa-bomb fa-shake fa-xl"></i>`
-                gameOver(playground,bombs);
                 msg.classList.remove(`msg-none`);
-                text.innerHTML = `hai perso`
+                gameOver(playground,bombs);
+                text.innerHTML = `hai perso`;
+
+                for(let i = 1; i<=squareNumber;i++){
+
+                }
             }
             else {
                 square.classList.add('active');
@@ -59,9 +67,9 @@ start.addEventListener('click', () => {
                     text.innerHTML = `hai vinto!`
                 }
             }
-            square.removeEventListener('click', click);
-        };
-        square.addEventListener('click', click);
+            this.removeEventListener('click',bombsAndCells);
+        }
+
         playground.append(square);
     }
 
