@@ -1,12 +1,10 @@
 #playground{
-    width: 1000px;
+    width: 800px;
 }
 .square{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
     border: 1px solid white;
 
 }
