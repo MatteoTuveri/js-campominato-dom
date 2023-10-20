@@ -28,7 +28,7 @@ function gameOver(box,bombs) {
     }
     buttonMsg.addEventListener('click', () =>{
         msg.classList.add(`msg-none`);
-        counterMsg.innerHTML=`Punteggio`;
+        counterMsg.innerHTML=`Punteggio`
         box.innerHTML='';
     });
 }

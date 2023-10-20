@@ -29,10 +29,7 @@ start.addEventListener('click', () => {
     }
 
     if(squareNumber!==0){
-
-
     let bombs = bombsGenerator(bombsNumber, 1, squareNumber);
-    console.log(bombs);
 
     for (let i = 1; i <= squareNumber; i++)//squares generator
     {
