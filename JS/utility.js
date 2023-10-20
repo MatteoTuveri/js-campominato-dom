@@ -19,29 +19,34 @@ function bombsGenerator(n, min, max) {
     return bombs;
 }
 
-function gameOver(box){
-    buttonMsg.addEventListener('click',()=>location.reload())
+function gameOver(box) {
+    buttonMsg.addEventListener('click', () => location.reload())
     box.replaceWith(box.cloneNode(true));
 }
 
-function bombRadar(number,squareNumber,bombsArray){
+function bombRadar(number, squareNumber, bombsArray) {
     let baseMeasure = Math.sqrt(squareNumber);
     let bombsInTheField = 0;
     //left
-    for(i = 1; i<=1; i++){
-        bombsInTheField=(bombsArray.includes(number-i))? bombsInTheField+1: bombsInTheField;
+    for (i = 1; i <= 1; i++) {
+        bombsInTheField = (bombsArray.includes(number - i)) ? bombsInTheField + 1 : bombsInTheField;
     }
     //right
-    for(i = 1; i<=1; i++){
-        bombsInTheField=(bombsArray.includes(number+i))? bombsInTheField+1: bombsInTheField;
+    for (i = 1; i <= 1; i++) {
+        bombsInTheField = (bombsArray.includes(number + i)) ? bombsInTheField + 1 : bombsInTheField;
     }
     //top
-    for(i = -1 ; i<=1; i++){
-        bombsInTheField=(bombsArray.includes(number - baseMeasure-i))? bombsInTheField+1: bombsInTheField;
+    if (number - baseMeasure >= 1) {
+
+        for (i = -1; i <= 1; i++) {
+            bombsInTheField = (bombsArray.includes(number - baseMeasure - i)) ? bombsInTheField + 1 : bombsInTheField;
+        }
     }
     //bottom
-    for(i = 1 ; i>=-1; i--){
-        bombsInTheField=(bombsArray.includes(number + baseMeasure+i))? bombsInTheField+1: bombsInTheField;
+    if (number + baseMeasure <= squareNumber) {
+        for (i = 1; i >= -1; i--) {
+            bombsInTheField = (bombsArray.includes(number + baseMeasure + i)) ? bombsInTheField + 1 : bombsInTheField;
+        }
     }
     console.log(bombsInTheField)
     return bombsInTheField;

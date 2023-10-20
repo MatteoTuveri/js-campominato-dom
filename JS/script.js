@@ -12,7 +12,7 @@ start.addEventListener('click', () => {
     playground.classList.remove('text-white');
     playground.innerHTML = ''
     let squareNumber;
-    let bombsNumber = 16;
+    let bombsNumber = 10;
     let counter = 0;
     if (difficulty.value === 'easy') {
         squareNumber = 100;
@@ -34,6 +34,7 @@ start.addEventListener('click', () => {
     }
 
     let bombs = bombsGenerator(bombsNumber, 1, squareNumber);
+    console.log(bombs);
     for (let i = 1; i <= squareNumber; i++)//squares generator
     {
         let square = document.createElement('div');
