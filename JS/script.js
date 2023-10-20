@@ -38,6 +38,7 @@ start.addEventListener('click', () => {
         square.classList.add('square');
         square.style.width = `calc(800px / ${Math.sqrt(squareNumber)}`;
         square.style.height = `calc(800px / ${Math.sqrt(squareNumber)}`;
+        let radar = bombRadar(i,squareNumber,bombs);
         let click = () => {
             if (bombs.includes(i)) {
                 square.classList.add('bomb');
@@ -47,7 +48,6 @@ start.addEventListener('click', () => {
                 text.innerHTML = `hai perso`
             }
             else {
-                let radar = bombRadar(i,squareNumber,bombs);
                 square.classList.add('active');
                 square.innerHTML = `${radar}`
                 counter += 1000;
