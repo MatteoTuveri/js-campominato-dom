@@ -12,7 +12,7 @@ start.addEventListener('click', () => {
     playground.classList.remove('text-white');
     playground.innerHTML = '';
     let squareNumber;
-    let bombsNumber = 1;
+    let bombsNumber = 16;
     let counter = 0;
     if (difficulty.value === 'easy') {
         squareNumber = 100;
