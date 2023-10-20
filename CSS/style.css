@@ -17,12 +17,16 @@
     background-color: red;
 }
 
-.msg {
+.msg-inside {
     display: block;
     transform: scaleY(1);
     background-color: rgb(255,255,255,0.8);
-    width: 25vw;
-    top: 20vh;
+}
+.msg {
+    transform: scaleY(1);
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
     transition: 1s;
 }
 
